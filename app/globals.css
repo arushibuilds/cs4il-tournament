@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Helvetica Inserat LT Std — the brand's primary display face. Licensed Linotype
+   font, so it is self-hosted rather than committed: drop the woff2 at
+   public/fonts/helvetica-inserat.woff2 (see the README there). Until it lands, the
+   Helvetica/Arial fallback in --font-display takes over with no layout shift. */
+@font-face {
+  font-family: "Helvetica Inserat LT Std";
+  src: url("/fonts/helvetica-inserat.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
+:root {
+  /* CS4IL brand: #008D5C is the only approved brand color. Do not alter or substitute. */
+  --brand: #008D5C;          /* fills, borders, icons, display type */
+  --brand-text: #00734B;     /* shade of --brand for body-size accent text (AA on white) */
+  --brand-soft: #E8F5EF;     /* tint of --brand for hover fills */
+  --brand-line: rgba(0, 141, 92, 0.18);
+
+  /* Pre-mixed alphas: Tailwind's `/NN` modifier is silently dropped on var() values. */
+  --brand-a10: rgba(0, 141, 92, 0.10);
+  --brand-a15: rgba(0, 141, 92, 0.15);
+  --brand-a20: rgba(0, 141, 92, 0.20);
+  --brand-a30: rgba(0, 141, 92, 0.30);
+  --brand-a40: rgba(0, 141, 92, 0.40);
+  --brand-a50: rgba(0, 141, 92, 0.50);
+  --muted-a20: rgba(75, 91, 84, 0.20);
+  --bg-a80: rgba(255, 255, 255, 0.80);
+
+  --bg: #FFFFFF;             /* white */
+  --text: #0E1A15;           /* near-black ink */
+  --muted: #4B5B54;          /* muted text */
+  --panel: #F6FBF9;          /* cards */
+
+  /* Dark band — the hero and footer invert onto near-black. Green gets a brighter
+     derived tint here for legibility; #008D5C itself stays the only fill/border green. */
+  --ink: #0B120F;            /* near-black with a green undertone */
+  --ink-panel: #10201A;      /* lifted surface on ink */
+  --on-ink: #E9F1EC;         /* text on ink */
+  --on-ink-muted: #7F968C;   /* muted text on ink */
+  --brand-on-ink: #33C489;   /* brand-derived accent, AA on --ink (terminal accent text only) */
+  --ink-line: rgba(255, 255, 255, 0.14);
+
+  --border: 155 22% 90%;     /* consumed by tailwind `border` color token */
+  --radius: 0.25rem;         /* consumed by tailwind rounded-sm/md/lg — squared, technical */
+
+  /* CS4IL typography. Helvetica Inserat LT Std is the brand's primary face (self-hosted
+     via @font-face above); its heavy condensed cut is scoped to headings, with the
+     brand's Helvetica/Arial fallback everywhere it is unavailable. Body copy stays on
+     the fallback stack. Mono is a system stack — used for eyebrows, labels and tags. */
+  --font-display: "Helvetica Inserat LT Std", "Helvetica Inserat", Helvetica, Arial, sans-serif;
+  --font-body: Helvetica, Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-[var(--bg)] text-[var(--text)] font-sans antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    /* Inserat is already a black condensed cut — let the face carry the weight
+       instead of synth-bolding the fallback. */
+    @apply font-display;
+    font-weight: 400;
+  }
+}
+
+@layer components {
+  .brand-border {
+    @apply border border-[var(--brand-line)];
+  }
+
+  .panel {
+    @apply bg-[var(--panel)] brand-border;
+  }
+
+  .hairline {
+    border-top: 1px solid var(--brand-line);
+  }
+
+  /* Mono kicker above headings. Pair with a literal `// ` or `> ` prefix in markup. */
+  .eyebrow {
+    @apply font-mono text-xs uppercase tracking-[0.2em] text-[var(--muted)];
+  }
+
+  .tag {
+    @apply inline-flex items-center font-mono text-xs px-2 py-0.5 rounded-sm
+           brand-border text-[var(--brand-text)];
+  }
+
+  .btn-primary {
+    @apply px-6 py-3 bg-[var(--brand)] border border-[var(--brand)] text-white
+           hover:bg-[var(--brand-text)] hover:border-[var(--brand-text)]
+           transition-colors duration-150 rounded-sm font-semibold;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-3 bg-[var(--bg)] brand-border text-[var(--text)]
+           hover:border-[var(--brand)] hover:text-[var(--brand-text)]
+           transition-colors duration-150 rounded-sm font-medium;
+  }
+
+  /* CTA variant for use on the dark band. */
+  .btn-on-ink {
+    @apply px-6 py-3 bg-transparent border border-[var(--ink-line)] text-[var(--on-ink)]
+           hover:border-[var(--brand-on-ink)] hover:text-[var(--brand-on-ink)]
+           transition-colors duration-150 rounded-sm font-medium;
+  }
+
+  /* Terminal caret that follows `> ICST` / `> loading…` lines. */
+  .cursor-blink {
+    display: inline-block;
+    margin-left: 0.15em;
+    animation: blink 1s step-end infinite;
+  }
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-pulse,
+  .transition-all,
+  .transition-colors,
+  .transition-opacity {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .cursor-blink {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+}
