@@ -14,6 +14,7 @@ export default function Navbar() {
     { name: 'Home', href: '/' },
     { name: 'Tournament', href: '/tournament' },
     // { name: 'Timeline', href: '/timeline' },
+    { name: 'Updates', href: '/updates' },
     { name: 'Projects', href: '/projects' },
     { name: 'Resources', href: '/resources' },
     // { name: 'Get Involved', href: '/get-involved' },
