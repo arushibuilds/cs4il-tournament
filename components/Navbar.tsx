@@ -4,8 +4,7 @@ import Image from 'next/image';
 import { useState } from 'react';
 import Link from 'next/link';
 import { Menu, X } from 'lucide-react';
-
-const REGISTER_URL = 'https://valiant-seashore-c82.notion.site/6f4c21535b958264b2098146eff72607';
+import { PRE_REGISTER_URL } from '@/lib/constants';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,7 +37,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-6 lg:gap-8">
+          <div className="hidden lg:flex items-center gap-8">
             {navItems.map((item) => (
               <Link
                 key={item.name}
@@ -54,19 +53,19 @@ export default function Navbar() {
           </div>
 
           {/* CTA Buttons */}
-          <div className="hidden md:flex items-center shrink-0">
+          <div className="hidden lg:flex items-center shrink-0">
             <a
-              href={REGISTER_URL}
+              href={PRE_REGISTER_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-primary inline-flex items-center gap-2 px-4 py-2 text-sm"
             >
-              Register
+              Pre-Register
             </a>
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-[var(--text)] hover:text-[var(--brand-text)] transition-colors duration-150"
@@ -80,7 +79,7 @@ export default function Navbar() {
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <div className="md:hidden panel border-t border-[var(--brand-line)]">
+        <div className="lg:hidden panel border-t border-[var(--brand-line)]">
           <div className="px-4 pt-3 pb-4 space-y-1">
             {navItems.map((item) => (
               <Link
@@ -94,13 +93,13 @@ export default function Navbar() {
             ))}
             <div className="pt-3">
               <a
-                href={REGISTER_URL}
+                href={PRE_REGISTER_URL}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary inline-flex items-center gap-2 w-full justify-center"
                 onClick={() => setIsOpen(false)}
               >
-                Register
+                Pre-Register
               </a>
             </div>
           </div>

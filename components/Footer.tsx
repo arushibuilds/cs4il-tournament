@@ -1,9 +1,11 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { Mail, Globe, Send } from 'lucide-react';
 
 const navLinks = [
   { name: 'Home', href: '/' },
   { name: 'Tournament', href: '/tournament' },
+  { name: 'Updates', href: '/updates' },
   { name: 'Projects', href: '/projects' },
   { name: 'Resources', href: '/resources' },
 ];
@@ -21,10 +23,15 @@ export default function Footer() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr]">
           {/* Wordmark */}
           <div>
-            <p className="font-display text-3xl text-[var(--on-ink)] tracking-tight">CS4IL</p>
-            <p className="mt-2 font-mono text-xs uppercase tracking-[0.2em]">
-              Computer Science for Illinois
-            </p>
+            <div className="inline-block bg-[var(--bg)] rounded-md p-3">
+              <Image
+                src="/horizontal-logo.png"
+                alt="CS4IL - Computer Science for Illinois"
+                width={1257}
+                height={715}
+                className="h-11 w-auto"
+              />
+            </div>
           </div>
 
           {/* Site links */}

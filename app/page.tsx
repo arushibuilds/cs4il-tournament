@@ -1,13 +1,13 @@
-import { ArrowRight } from 'lucide-react';
-// import { FileText } from 'lucide-react'; // re-enable with the Full Rules button
+import { ArrowRight, FileText } from 'lucide-react';
+import Image from 'next/image';
 import TypingTerminal from '@/components/TypingTerminal';
+import ShareFlyerButton from '@/components/ShareFlyerButton';
+import { PRE_REGISTER_URL } from '@/lib/constants';
 
-/* TODO: the href is a placeholder — swap in the real pre-registration form when it exists. */
-const PRE_REGISTER_URL = '#';
-// const FULL_RULES_URL = '#'; // re-enable with the Full Rules button (needs the full-rules doc)
+const FULL_RULES_URL = 'https://docs.google.com/document/d/1Xm84bLDv0M8QJtFoemOa5dm4ebje2tePUrggLoEA1Gk/edit';
 
 const HERO_META = [
-  ['60 teams', '2025 inaugural'],
+  ['2025', '60+ teams'],
   ['Launch', 'October'],
   ['Previews', 'September'],
 ];
@@ -17,57 +17,72 @@ export default function Home() {
     <>
       {/* Hero — dark band */}
       <section className="bg-[var(--ink)] text-[var(--on-ink)]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 md:pt-28 md:pb-20">
-          <p className="eyebrow text-[var(--on-ink-muted)]">
-            {'// cs4il — statewide computer science — est. 2025'}
-          </p>
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 md:pt-28 md:pb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-12 lg:gap-16 items-center">
+            <div>
+              <p className="eyebrow text-[var(--on-ink-muted)]">
+                {'// cs4il — statewide computer science'}
+              </p>
 
-          <h1 className="mt-6 text-5xl md:text-7xl leading-[1.05] tracking-tight max-w-3xl">
-            Illinois Computer Science Tournament
-          </h1>
+              <h1 className="mt-6 text-5xl md:text-7xl leading-[1.05] tracking-tight max-w-3xl">
+                Illinois Computer Science Tournament
+              </h1>
 
-          <TypingTerminal />
+              <TypingTerminal />
 
-          <p className="mt-4 font-mono text-sm uppercase tracking-[0.2em] text-[var(--on-ink-muted)]">
-            A Game Within A Game
-          </p>
-
-          <div className="mt-10 flex flex-col sm:flex-row gap-4">
-            <a
-              href={PRE_REGISTER_URL}
-              className="btn-primary inline-flex items-center justify-center gap-2"
-            >
-              Pre-Register
-              <ArrowRight size={18} />
-            </a>
-            {/* Full Rules — hidden until the full-rules doc is ready
-            <a
-              href={FULL_RULES_URL}
-              className="btn-on-ink inline-flex items-center justify-center gap-2"
-            >
-              <FileText size={18} />
-              Full Rules
-            </a>
-            */}
-          </div>
-
-          <dl className="mt-14 border-t border-[var(--ink-line)] pt-6 grid grid-cols-1 sm:grid-cols-3 font-mono text-sm">
-            {HERO_META.map(([label, value], i) => (
-              <div
-                key={label}
-                className={
-                  i > 0
-                    ? 'sm:pl-6 sm:border-l border-[var(--ink-line)] py-2 sm:py-0'
-                    : 'py-2 sm:py-0'
-                }
-              >
-                <dt className="text-[var(--on-ink-muted)] uppercase tracking-wider text-xs">
-                  {label}
-                </dt>
-                <dd className="mt-1 text-[var(--on-ink)]">{value}</dd>
+              <div className="mt-10 flex flex-col sm:flex-row gap-4">
+                <a
+                  href={PRE_REGISTER_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-primary inline-flex items-center justify-center gap-2"
+                >
+                  Pre-Register
+                  <ArrowRight size={18} />
+                </a>
+                <a
+                  href={FULL_RULES_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-on-ink inline-flex items-center justify-center gap-2"
+                >
+                  <FileText size={18} />
+                  Rules
+                </a>
               </div>
-            ))}
-          </dl>
+
+              <dl className="mt-14 border-t border-[var(--ink-line)] pt-6 grid grid-cols-1 sm:grid-cols-3 font-mono text-sm">
+                {HERO_META.map(([label, value], i) => (
+                  <div
+                    key={label}
+                    className={
+                      i > 0
+                        ? 'sm:pl-6 sm:border-l border-[var(--ink-line)] py-2 sm:py-0'
+                        : 'py-2 sm:py-0'
+                    }
+                  >
+                    <dt className="text-[var(--on-ink-muted)] uppercase tracking-wider text-xs">
+                      {label}
+                    </dt>
+                    <dd className="mt-1 text-[var(--on-ink)]">{value}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+
+            <div className="max-w-xs sm:max-w-sm md:max-w-md mx-auto lg:max-w-none lg:mx-0 space-y-4">
+              <Image
+                src="/tournament-flyer.png"
+                alt="2026-27 Illinois Computer Science Tournament flyer — free for all IL schools, register now to win prizes and swag"
+                width={1545}
+                height={1999}
+                sizes="(min-width: 1024px) 340px, (min-width: 768px) 448px, (min-width: 640px) 384px, 320px"
+                className="w-full h-auto rounded-md border border-[var(--ink-line)] shadow-lg"
+                priority
+              />
+              <ShareFlyerButton />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -85,7 +100,7 @@ export default function Home() {
               Whether you are a returning team or new to the competition, we want to
               extend a warm welcome to teachers, students, administrators, or anyone
               else interested in the first and only statewide computer science
-              tournament.
+              tournament — free for every Illinois school to join.
             </p>
 
             <p className="text-lg leading-relaxed max-w-[65ch]">
@@ -103,7 +118,7 @@ export default function Home() {
             <dl className="font-mono text-sm space-y-2">
               <div className="flex gap-4">
                 <dt className="w-14 shrink-0 text-[var(--brand-text)]">SEP</dt>
-                <dd className="text-[var(--muted)]">Competition previews published — check back often.</dd>
+                <dd className="text-[var(--muted)]">Competition previews coming this month — check back often.</dd>
               </div>
               <div className="flex gap-4">
                 <dt className="w-14 shrink-0 text-[var(--brand-text)]">OCT</dt>
@@ -114,20 +129,22 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4">
               <a
                 href={PRE_REGISTER_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-primary inline-flex items-center justify-center gap-2"
               >
                 Pre-Register
                 <ArrowRight size={18} />
               </a>
-              {/* Full Rules — hidden until the full-rules doc is ready
               <a
                 href={FULL_RULES_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="btn-secondary inline-flex items-center justify-center gap-2"
               >
                 <FileText size={18} />
-                Full Rules
+                Rules
               </a>
-              */}
             </div>
           </div>
         </div>
