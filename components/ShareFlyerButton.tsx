@@ -6,7 +6,7 @@ import { Share2, Check } from 'lucide-react';
 const FLYER_PATH = '/tournament-flyer.png';
 const FLYER_FILENAME = 'cs4il-tournament-flyer.png';
 const SHARE_TITLE = 'Illinois Computer Science Tournament';
-const SHARE_TEXT = 'Check out the 2026-27 Illinois Computer Science Tournament — free for all IL schools!';
+const SHARE_TEXT = 'Check out the 2026-27 Illinois Computer Science Tournament, free for all IL schools!';
 
 function downloadFlyer() {
   const link = document.createElement('a');
@@ -47,7 +47,7 @@ export default function ShareFlyerButton() {
       }
     }
 
-    // No share API available — copy a link they can paste, or download the image.
+    // No share API available - copy a link they can paste, or download the image.
     try {
       await navigator.clipboard.writeText(flyerUrl);
       setCopied(true);

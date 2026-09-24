@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Helvetica Inserat LT Std — the brand's primary display face. Licensed Linotype
+/* Helvetica Inserat LT Std - the brand's primary display face. Licensed Linotype
    font, so it is self-hosted rather than committed: drop the woff2 at
    public/fonts/helvetica-inserat.woff2 (see the README there). Until it lands, the
    Helvetica/Arial fallback in --font-display takes over with no layout shift. */
@@ -35,7 +35,7 @@
   --muted: #4B5B54;          /* muted text */
   --panel: #F6FBF9;          /* cards */
 
-  /* Dark band — the hero and footer invert onto near-black. Green gets a brighter
+  /* Dark band - the hero and footer invert onto near-black. Green gets a brighter
      derived tint here for legibility; #008D5C itself stays the only fill/border green. */
   --ink: #0B120F;            /* near-black with a green undertone */
   --ink-panel: #10201A;      /* lifted surface on ink */
@@ -45,12 +45,12 @@
   --ink-line: rgba(255, 255, 255, 0.14);
 
   --border: 155 22% 90%;     /* consumed by tailwind `border` color token */
-  --radius: 0.25rem;         /* consumed by tailwind rounded-sm/md/lg — squared, technical */
+  --radius: 0.25rem;         /* consumed by tailwind rounded-sm/md/lg - squared, technical */
 
   /* CS4IL typography. Helvetica Inserat LT Std is the brand's primary face (self-hosted
      via @font-face above); its heavy condensed cut is scoped to headings, with the
      brand's Helvetica/Arial fallback everywhere it is unavailable. Body copy stays on
-     the fallback stack. Mono is a system stack — used for eyebrows, labels and tags. */
+     the fallback stack. Mono is a system stack - used for eyebrows, labels and tags. */
   --font-display: "Helvetica Inserat LT Std", "Helvetica Inserat", Helvetica, Arial, sans-serif;
   --font-body: Helvetica, Arial, sans-serif;
   --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
@@ -71,7 +71,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    /* Inserat is already a black condensed cut — let the face carry the weight
+    /* Inserat is already a black condensed cut - let the face carry the weight
        instead of synth-bolding the fallback. */
     @apply font-display;
     font-weight: 400;

@@ -78,7 +78,7 @@ export default function Footer() {
 
         <div className="mt-12 pt-6 border-t border-[var(--ink-line)]">
           <p className="font-mono text-xs text-[var(--on-ink-muted)]">
-            &copy; {new Date().getFullYear()} CS4IL — Computer Science for Illinois
+            &copy; {new Date().getFullYear()} CS4IL - Computer Science for Illinois
           </p>
         </div>
       </div>

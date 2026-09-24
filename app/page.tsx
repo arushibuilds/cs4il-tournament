@@ -15,13 +15,13 @@ const HERO_META = [
 export default function Home() {
   return (
     <>
-      {/* Hero — dark band */}
+      {/* Hero - dark band */}
       <section className="bg-[var(--ink)] text-[var(--on-ink)]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16 md:pt-28 md:pb-20">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_340px] gap-12 lg:gap-16 items-center">
             <div>
               <p className="eyebrow text-[var(--on-ink-muted)]">
-                {'// cs4il — statewide computer science'}
+                {'// cs4il: statewide computer science'}
               </p>
 
               <h1 className="mt-6 text-5xl md:text-7xl leading-[1.05] tracking-tight max-w-3xl">
@@ -73,7 +73,7 @@ export default function Home() {
             <div className="max-w-xs sm:max-w-sm md:max-w-md mx-auto lg:max-w-none lg:mx-0 space-y-4">
               <Image
                 src="/tournament-flyer.png"
-                alt="2026-27 Illinois Computer Science Tournament flyer — free for all IL schools, register now to win prizes and swag"
+                alt="2026-27 Illinois Computer Science Tournament flyer, free for all IL schools, register now to win prizes and swag"
                 width={1545}
                 height={1999}
                 sizes="(min-width: 1024px) 340px, (min-width: 768px) 448px, (min-width: 640px) 384px, 320px"
@@ -124,7 +124,7 @@ export default function Home() {
             <dl className="font-mono text-sm space-y-2">
               <div className="flex gap-4">
                 <dt className="w-14 shrink-0 text-[var(--brand-text)]">SEP</dt>
-                <dd className="text-[var(--muted)]">Competition previews coming this month — check back often.</dd>
+                <dd className="text-[var(--muted)]">Competition previews coming this month. Check back often.</dd>
               </div>
               <div className="flex gap-4">
                 <dt className="w-14 shrink-0 text-[var(--brand-text)]">OCT</dt>
