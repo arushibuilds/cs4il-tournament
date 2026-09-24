@@ -4,9 +4,10 @@ import { Mail, Globe, Send } from 'lucide-react';
 
 const navLinks = [
   { name: 'Home', href: '/' },
-  { name: 'Tournament', href: '/tournament' },
+  { name: 'About', href: '/about' },
+  { name: 'Calendar', href: '/calendar' },
+  { name: 'Participants', href: '/participants' },
   { name: 'Updates', href: '/updates' },
-  { name: 'Projects', href: '/projects' },
   { name: 'Resources', href: '/resources' },
 ];
 

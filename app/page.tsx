@@ -93,14 +93,14 @@ export default function Home() {
             <p className="eyebrow">{'// welcome'}</p>
 
             <h2 className="text-3xl md:text-4xl">
-              Welcome to our 2nd annual edition
+              Welcome to our 2nd annual edition!
             </h2>
 
             <p className="text-lg leading-relaxed max-w-[65ch]">
               Whether you are a returning team or new to the competition, we want to
               extend a warm welcome to teachers, students, administrators, or anyone
               else interested in the first and only statewide computer science
-              tournament — free for every Illinois school to join.
+              tournament.
             </p>
 
             <p className="text-lg leading-relaxed max-w-[65ch]">
@@ -108,6 +108,12 @@ export default function Home() {
               the state. We had a blast, and the top three finishers were all stellar.
               We learned a lot from designing that experience, and incorporated student
               feedback to make this year’s version even more fun and awesome!
+            </p>
+
+            <p className="text-lg leading-relaxed max-w-[65ch]">
+              The tournament will officially launch in October, but you can
+              pre-register at the link below. We will publish previews of the
+              competition starting in September, so check back often for updates.
             </p>
           </div>
 

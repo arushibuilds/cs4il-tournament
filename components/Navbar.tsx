@@ -11,10 +11,13 @@ export default function Navbar() {
 
   const navItems = [
     { name: 'Home', href: '/' },
-    { name: 'Tournament', href: '/tournament' },
+    // { name: 'Tournament', href: '/tournament' },
     // { name: 'Timeline', href: '/timeline' },
+    { name: 'About', href: '/about' },
+    { name: 'Calendar', href: '/calendar' },
+    { name: 'Participants', href: '/participants' },
     { name: 'Updates', href: '/updates' },
-    { name: 'Projects', href: '/projects' },
+    // { name: 'Projects', href: '/projects' },
     { name: 'Resources', href: '/resources' },
     // { name: 'Get Involved', href: '/get-involved' },
     // { name: 'Sponsors', href: '/sponsors' },
