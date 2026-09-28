@@ -15,7 +15,7 @@
 
 :root {
   /* CS4IL brand: #008D5C is the only approved brand color. Do not alter or substitute. */
-  --brand: #008D5C;          /* fills, borders, icons, display type */
+  --brand: #008d5c;          /* fills, borders, icons, display type */
   --brand-text: #00734B;     /* shade of --brand for body-size accent text (AA on white) */
   --brand-soft: #E8F5EF;     /* tint of --brand for hover fills */
   --brand-line: rgba(0, 141, 92, 0.18);

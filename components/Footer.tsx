@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Mail, Globe, Send } from 'lucide-react';
+import Script from 'next/script';
+import { Mail, Globe, Send, Bell } from 'lucide-react';
 
 const navLinks = [
   { name: 'Home', href: '/' },
@@ -12,14 +13,22 @@ const navLinks = [
 ];
 
 const contactLinks = [
-  { label: 'info@cs4il.org', href: 'mailto:info@cs4il.org', icon: Mail, external: false },
-  { label: 'cs4il.org', href: 'https://cs4il.org/', icon: Globe, external: true },
-  { label: 'Newsletter', href: 'https://mailchi.mp/d20f1a9f8fce/cs4il', icon: Send, external: true },
+  { label: 'info@cs4il.org', href: 'mailto:info@cs4il.org', icon: Mail, external: false, formkitToggle: false },
+  { label: 'cs4il.org', href: 'https://cs4il.org/', icon: Globe, external: true, formkitToggle: false },
+  { label: 'Newsletter', href: 'https://mailchi.mp/d20f1a9f8fce/cs4il', icon: Send, external: true, formkitToggle: false },
+  { label: 'Tournament Updates', href: 'https://cs4il.kit.com/e26316e72a', icon: Bell, external: true, formkitToggle: true },
 ];
 
 export default function Footer() {
   return (
     <footer className="relative z-10 mt-20 bg-[var(--ink)] text-[var(--on-ink-muted)]">
+      <Script
+        id="kit-tournament-updates-form"
+        async
+        data-uid="e26316e72a"
+        src="https://cs4il.kit.com/e26316e72a/index.js"
+        strategy="afterInteractive"
+      />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr]">
           {/* Wordmark */}
@@ -60,11 +69,12 @@ export default function Footer() {
               {'// contact'}
             </p>
             <ul className="mt-4 space-y-2 font-mono text-sm">
-              {contactLinks.map(({ label, href, icon: Icon, external }) => (
+              {contactLinks.map(({ label, href, icon: Icon, external, formkitToggle }) => (
                 <li key={label}>
                   <a
                     href={href}
                     {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+                    {...(formkitToggle ? { 'data-formkit-toggle': 'e26316e72a' } : {})}
                     className="inline-flex items-center gap-2 hover:text-[var(--brand-on-ink)] transition-colors duration-150"
                   >
                     <Icon size={15} />

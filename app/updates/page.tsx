@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { PRE_REGISTER_URL } from '@/lib/constants';
+import TournamentUpdatesButton from '@/components/TournamentUpdatesButton';
 
 export const metadata: Metadata = {
   title: 'Updates | CS4IL',
@@ -47,6 +48,8 @@ export default function Updates() {
           <p className="eyebrow">{'// updates'}</p>
           <h1 className="text-4xl md:text-5xl">Updates</h1>
         </div>
+
+        <TournamentUpdatesButton />
 
         <div className="space-y-8">
           {sorted.map((update) => (

@@ -2,6 +2,8 @@ import { ArrowRight, FileText } from 'lucide-react';
 import Image from 'next/image';
 import TypingTerminal from '@/components/TypingTerminal';
 import ShareFlyerButton from '@/components/ShareFlyerButton';
+import TournamentUpdatesForm from '@/components/TournamentUpdatesForm';
+import TournamentUpdatesButton from '@/components/TournamentUpdatesButton';
 import { PRE_REGISTER_URL } from '@/lib/constants';
 
 const FULL_RULES_URL = 'https://docs.google.com/document/d/1Xm84bLDv0M8QJtFoemOa5dm4ebje2tePUrggLoEA1Gk/edit';
@@ -151,8 +153,11 @@ export default function Home() {
                 <FileText size={18} />
                 Rules
               </a>
+              <TournamentUpdatesButton />
             </div>
           </div>
+
+          <TournamentUpdatesForm />
         </div>
       </section>
     </>
