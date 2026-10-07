@@ -63,7 +63,7 @@ export default function Navbar() {
               rel="noopener noreferrer"
               className="btn-primary inline-flex items-center gap-2 px-4 py-2 text-sm"
             >
-              Pre-Register
+              Register Now
             </a>
           </div>
 
@@ -102,7 +102,7 @@ export default function Navbar() {
                 className="btn-primary inline-flex items-center gap-2 w-full justify-center"
                 onClick={() => setIsOpen(false)}
               >
-                Pre-Register
+                Register Now
               </a>
             </div>
           </div>

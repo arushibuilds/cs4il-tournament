@@ -39,7 +39,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="btn-primary inline-flex items-center justify-center gap-2"
                 >
-                  Pre-Register
+                  Register Now
                   <ArrowRight size={18} />
                 </a>
                 <a
@@ -141,7 +141,7 @@ export default function Home() {
                 rel="noopener noreferrer"
                 className="btn-primary inline-flex items-center justify-center gap-2"
               >
-                Pre-Register
+                Register Now
                 <ArrowRight size={18} />
               </a>
               <a

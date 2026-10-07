@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
+import Image from 'next/image';
 
 export const metadata: Metadata = {
   title: 'About | CS4IL',
@@ -13,6 +14,8 @@ type Challenge = {
   description: ReactNode;
   badges: string[];
   resources?: string[];
+  details?: string[];
+  flyer?: { src: string; alt: string; width: number; height: number };
 };
 
 const HOW_IT_WORKS = [
@@ -44,23 +47,38 @@ const CHALLENGES: Challenge[] = [
   {
     index: '02',
     slug: 'processing-code-yourself',
-    title: 'Processing / Code Yourself',
+    title: 'Processing / CodeYourSelf™',
     description: (
       <>
         Teams submit generative art built with{' '}
         <strong className="font-semibold text-[var(--text)]">P5.js</strong>, an open-source,
-        beginner-friendly language for 2D and 3D artwork also used in national competitions like{' '}
-        <strong className="font-semibold text-[var(--text)]">Code Yourself</strong>. Several badges
-        are earnable here, so there's more than one way to score.
+        beginner-friendly language for 2D and 3D artwork also used in{' '}
+        <strong className="font-semibold text-[var(--text)]">CodeYourSelf™</strong>, Code/Art's
+        national competition. This year's theme, "Life is Art," invites students to turn
+        themselves into a work of art using code. Several badges are earnable here, so there's
+        more than one way to score.
       </>
     ),
     badges: [
-      'Submit to Code Yourself competition (must meet criteria)',
+      'Submit to CodeYourSelf™ competition (must meet criteria)',
       'Create a playable 2D or 3D game using Processing',
       'Collaboration Badge (details TBD)',
-      'Code Yourself National Finalist',
+      'CodeYourSelf™ National Finalist',
     ],
     resources: ['Processing software: OpenProcessing or equivalent platform'],
+    details: [
+      `CodeYourSelf™ 2026-27 theme: "Life is Art" - turn yourself into a work of art using code.`,
+      'Eligibility: female and non-binary students in grades 3-12, judged within their grade division.',
+      'Submission deadline: Tuesday, February 16, 2027 at 11:59 PM ET.',
+      'Prizes: cash, official Code/Art merch, and recognition at Code/Art Fest.',
+      'Showcase: Saturday, April 3, 2027 at MAD Arts Museum, Dania Beach, FL.',
+    ],
+    flyer: {
+      src: '/CodeArt_CodeYourSelf_Flyer.png',
+      alt: 'CodeYourSelf 2026-27 competition flyer: theme "Life is Art," for girls grades 3-12, open for entries, deadline February 16, 2027',
+      width: 2430,
+      height: 3037,
+    },
   },
   {
     index: '03',
@@ -183,6 +201,33 @@ export default function About() {
                       </span>
                     ))}
                   </div>
+                </div>
+              )}
+
+              {(challenge.details || challenge.flyer) && (
+                <div className="grid grid-cols-1 sm:grid-cols-[auto_1fr] gap-6 items-start border-t border-[var(--brand-line)] pt-5">
+                  {challenge.flyer && (
+                    <Image
+                      src={challenge.flyer.src}
+                      alt={challenge.flyer.alt}
+                      width={challenge.flyer.width}
+                      height={challenge.flyer.height}
+                      className="w-full sm:w-64 lg:w-80 h-auto rounded-sm border border-[var(--brand-line)] shrink-0"
+                    />
+                  )}
+
+                  {challenge.details && (
+                    <dl className="space-y-2 font-mono text-sm">
+                      {challenge.details.map((line) => (
+                        <div key={line} className="flex gap-3">
+                          <dt aria-hidden="true" className="shrink-0 text-[var(--brand-text)]">
+                            &gt;
+                          </dt>
+                          <dd className="text-[var(--muted)] leading-relaxed">{line}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                  )}
                 </div>
               )}
             </article>
